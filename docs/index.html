@@ -100,6 +100,7 @@
                      document.getElementById('timer_div').innerHTML = "";
                      clearInterval(interval);
                      tiempo = document.getElementById("tiempo").value;
+                     userAction();
                      myVar = setInterval(userAction, tiempo*1000);   
                   }
                }, 1000);   
