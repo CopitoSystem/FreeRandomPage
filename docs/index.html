@@ -89,22 +89,30 @@
          
          function comenzar() {
 
-       var seconds_left = 4;
-var interval = setInterval(function() {
-    document.getElementById('timer_div').innerHTML = --seconds_left;
+            if (document.getElementById('comenzar_detener').value == "start"){
+               document.getElementById('comenzar_detener').value = "detener";
+               document.getElementById('comenzar_detener').innerHTML  = "Detener";
+               var seconds_left = 4;
+               var interval = setInterval(function() {
+                  document.getElementById('timer_div').innerHTML = --seconds_left;
 
-    if (seconds_left <= 0)
-    {
-       document.getElementById('timer_div').innerHTML = "";
-       clearInterval(interval);
-       tiempo = document.getElementById("tiempo").value;
-            myVar = setInterval(userAction, tiempo*1000);   
-    }
-}, 1000);
+                  if (seconds_left <= 0){
+                     document.getElementById('timer_div').innerHTML = "";
+                     clearInterval(interval);
+                     tiempo = document.getElementById("tiempo").value;
+                     myVar = setInterval(userAction, tiempo*1000);   
+                  }
+               }, 1000);   
+            }else{
+               clearInterval(myVar);   
+               document.getElementById('comenzar_detener').value = "start";
+               document.getElementById('comenzar_detener').innerHTML  = "Comenzar";
+            }
 
-         	
-         	
-         }         
+
+            
+         }        
+
       </script>
 
    </head>
@@ -131,14 +139,14 @@ var interval = setInterval(function() {
                </form>
                <br>
                <div class="grupo-botones">
-                  <button class="boton-iniciar" type="submit" onclick="comenzar()">Comenzar</button>
-                  <button type="submit" class="boton-iniciar" onclick="myStopFunction()">Reiniciar</button>
+                  <button class="boton-iniciar" id="comenzar_detener" type="submit" value="start" onclick="comenzar();">Comenzar</button>
+                  <button type="submit" class="boton-iniciar" onclick="userAction()">Manual</button>
                </div>
                <br>
                <footer>
                   <svg class="footer_svg" >
                      <rect  x="0" y="0" width="100%" height="100%" fill="#df7366" rx="35" ry="35"/>
-                     <text id="timer_div" style="font-family: palabra_circulo; " x="50%" y="50%" text-anchor="middle"  color="black" dy=".3em" ></text>
+                     <text id="timer_div" style="font-family: palabra_circulo; " x="50%" y="50%" text-anchor="middle"  color="black" dy=".3em" >¡Buena Suerte! </text>
 
                   </svg>
                </footer>
