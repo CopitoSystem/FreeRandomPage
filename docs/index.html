@@ -96,7 +96,7 @@
                   <input id="tp" type="radio" name="modo" value="true"><span style="font-weight:500;">Palabras al Azar</span>
                   </label>
                   <label style="font-family: texto_comun">
-                  <input id="tl" type="radio" name="modo" value="true" style="margin-top: -5px;">Una Letra<input type="text" id="l" maxlength="1" value="">
+                  <input id="tl" type="radio" name="modo" value="true" style="margin-top: -5px;">Una Letra<input type="text" id="l" maxlength="1" value="" style=" display: flex;width: 80px;">
                   </label>
                </form>
                <br>
@@ -150,10 +150,25 @@
                            <h3 style="font-family: titulo_principal">¿Querés contactarte con nosotros?</h3>
                         </header>
                         <p>¡Envianos un mail con sugerencias o un audio con tu improvisación para que otras personas puedan escucharte!</p>
+
+                        <form>
+                           <input type="text" placeholder="Asunto" id="form-subject" class="form-control" required="true">
+                           <br>
+                           <br>
+                           <textarea class="form-control" id="form-message" placeholder="Tu Mensaje" rows="2" cols="25" required="true"></textarea>
+                           <br>     
+                           <br>                      
+                           <div style="width: 100%;">
+                              <button id=send-email style="margin: 0;" class="boton-iniciar" type="submit">Enviar Mensaje</button>   
+                           </div>        
+                        </form>
+                        
+                        <br>
                         <ul class="icons">
-                           <li><a href="#" class="far fa-envelope"></a></li>
+                           <li>Email: copitosystem@gmail.com</li>
                         </ul>
                      </section>
+
                      <!-- Copyright -->
                      <div class="copyright">
                         <ul class="menu">
@@ -176,6 +191,40 @@
       <script src="assets/js/breakpoints.min.js"></script>
       <script src="assets/js/util.js"></script>
       <script src="assets/js/main.js"></script>
+      <script src="assets/js/form-validator.min.js"></script>
+      <script src="assets/js/contact-form-script.min.js"></script>
+
+      <!-- Email Form -->
+
+    <script>
+
+        $(document).ready(function() {
+
+            //Save references to elements. Don't do DOM walks in event handlers when not needed.
+
+            var $sendEmailEl = $('#send-email');
+
+            var $subjectEl = $('#form-subject');
+
+            var $bodyEl = $('#form-message');
+
+            function updateEmailLink() {
+
+                $sendEmailEl.attr('href', 'mailto:copitosystem@gmail.com?' +
+
+                    'subject=' + encodeURIComponent($subjectEl.val()) +
+
+                    '&body=' + encodeURIComponent($bodyEl.val()));
+
+            }
+
+            $('#send-email,#form-message').on('input', updateEmailLink);
+
+            updateEmailLink();
+
+        });
+
+    </script>
       
    </body>
 </html>

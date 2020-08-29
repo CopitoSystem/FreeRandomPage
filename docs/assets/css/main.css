@@ -432,7 +432,7 @@ input, select, textarea {
 	form select,
 	form textarea {
 		
-		display: flex;
+		
 		border: 0;
 		background: #fafafa;
 		border-radius: 0.5em;
@@ -441,7 +441,7 @@ input, select, textarea {
 		padding: 0.25em;
 		margin-left: 10px;
 
-		width: 80px;
+		
 		-moz-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 		-webkit-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
 		-ms-transition: background-color 0.35s ease-in-out, border-color 0.35s ease-in-out;
@@ -464,9 +464,7 @@ input, select, textarea {
 		line-height: 0.5em;
 	}
 
-	form textarea {
-		min-height: 9em;
-	}
+	
 
 	form ::-webkit-input-placeholder {
 		color: #555 !important;
