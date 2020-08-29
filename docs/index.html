@@ -66,7 +66,7 @@
          if (document.getElementById("tp").checked)
          tipo_palabra = document.getElementById("tp").value;
           
-            const response = await fetch('//copitoSystem.pythonanywhere.com/palabra', {
+            const response = await fetch('http://127.0.0.1:5000/palabra', {
               method: 'POST',
               body: JSON.stringify({
                 tipo_letra: tipo_letra,
@@ -80,7 +80,7 @@
             });
           const myJson = await response.json(); //extract JSON from the http response
           //console.log(myJson);
-          document.getElementById('circulo').innerHTML = myJson.data.palabra;
+          document.getElementById('timer_div').innerHTML = myJson.data.palabra;
          }
          
          function myStopFunction() {
@@ -88,8 +88,21 @@
          }
          
          function comenzar() {
-         	tiempo = document.getElementById("tiempo").value;
-         	myVar = setInterval(userAction, tiempo*1000);	
+
+       var seconds_left = 4;
+var interval = setInterval(function() {
+    document.getElementById('timer_div').innerHTML = --seconds_left;
+
+    if (seconds_left <= 0)
+    {
+       document.getElementById('timer_div').innerHTML = "";
+       clearInterval(interval);
+       tiempo = document.getElementById("tiempo").value;
+            myVar = setInterval(userAction, tiempo*1000);   
+    }
+}, 1000);
+
+         	
          	
          }         
       </script>
@@ -123,9 +136,10 @@
                </div>
                <br>
                <footer>
-                  <svg class="footer_svg">
-                     <rect id="box" x="0" y="0" width="100%" height="100%" fill="#df7366" rx="35" ry="35"/>
-                     <text style="font-family: palabra_circulo; " x="50%" y="50%" text-anchor="middle"  color="black" dy=".3em" id="circulo">¡Buena Suerte!</text>
+                  <svg class="footer_svg" >
+                     <rect  x="0" y="0" width="100%" height="100%" fill="#df7366" rx="35" ry="35"/>
+                     <text id="timer_div" style="font-family: palabra_circulo; " x="50%" y="50%" text-anchor="middle"  color="black" dy=".3em" ></text>
+
                   </svg>
                </footer>
             </div>
@@ -235,7 +249,10 @@
 
         });
 
+
     </script>
+
+
       
    </body>
 </html>
