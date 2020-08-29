@@ -969,6 +969,10 @@ input, select, textarea {
 			font-size: 170%
 		}
 
+		.footer_svg{
+			width: 60%;
+		}
+
 		#footer .contact {
 			text-align: center;
 		}
@@ -1201,6 +1205,10 @@ input, select, textarea {
 				font-size: 30px;
 			}
 
+			.footer_svg{
+				width: 100%;
+			}
+
 	}
 
 /* Narrow */
@@ -1255,6 +1263,10 @@ input, select, textarea {
 
 			#circulo {
 				font-size: 25px;
+			}
+
+			.footer_svg{
+				width: 100%;
 			}
 	}
 
@@ -1669,6 +1681,10 @@ input, select, textarea {
 
 			#circulo {
 				font-size: 25px;
+			}
+
+			.footer_svg{
+				width: 100%;
 			}
 
 	}
