@@ -555,6 +555,28 @@ input, select, textarea {
 		-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 		transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
 	}
+	.href_button {
+		margin-left: 5%;
+		margin-right: 5%;
+		font-size: 0.85em;
+		display: flex;
+		position: relative;
+		display: inline-block;
+		background: #df7366;
+		color: #fff;
+		text-align: center;
+		border-radius: 0.5em;
+		text-decoration: none;
+		padding: 0.65em 3em 0.65em 3em;
+		border: 0;
+		cursor: pointer;
+		outline: 0;
+		font-weight: 600;
+		-moz-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-webkit-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		-ms-transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+		transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out, border-bottom-color 0.35s ease-in-out;
+	}
 
 		input[type="button"]:hover,
 		input[type="submit"]:hover,
@@ -968,7 +990,7 @@ input, select, textarea {
 		}
 
 		.footer_svg{
-			width: 60%;
+			width: 45%;
 		}
 
 		#footer .contact {
