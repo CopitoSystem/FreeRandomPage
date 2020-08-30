@@ -1135,7 +1135,7 @@ input, select, textarea {
 				text-align: center;
 			}
 
-			#circulo {
+			#timer_div {
 				font-size: 30px;
 			}
 
@@ -1221,7 +1221,7 @@ input, select, textarea {
 				margin-right: 5%;
 			}
 
-			#circulo {
+			#timer_div {
 				font-size: 30px;
 			}
 
@@ -1281,7 +1281,7 @@ input, select, textarea {
 				margin-right: 5%;
 			}
 
-			#circulo {
+			#timer_div {
 				font-size: 25px;
 			}
 
@@ -1699,7 +1699,7 @@ input, select, textarea {
 				margin-right: 5%;
 			}
 
-			#circulo {
+			#timer_div {
 				font-size: 25px;
 			}
 
