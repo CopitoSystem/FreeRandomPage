@@ -54,20 +54,15 @@
          }
       </style>
       <script type="text/javascript">
-         userAction = async () => {
-            var myVar;
+         var myVar;
             var tiempo;
           var tipo_letra=null;
           var tipo_palabra=null;
           var letra=null;
+         userAction = async () => {
+            
          
-         if (document.getElementById("tl").checked){
-         tipo_letra = document.getElementById("tl").value;
-         letra = document.getElementById("l").value;
-         }
-         
-         if (document.getElementById("tp").checked)
-         tipo_palabra = document.getElementById("tp").value;
+        
           
             const response = await fetch('//copitoSystem.pythonanywhere.com/palabra', {
               method: 'POST',
@@ -103,6 +98,15 @@
                      document.getElementById('timer_div').innerHTML = "";
                      clearInterval(interval);
                      tiempo = document.getElementById("tiempo").value;
+                     
+                      if (document.getElementById("tl").checked){
+         tipo_letra = document.getElementById("tl").value;
+         letra = document.getElementById("l").value;
+         }
+         
+         if (document.getElementById("tp").checked)
+         tipo_palabra = document.getElementById("tp").value;
+
                      userAction();
                      myVar = setInterval(userAction, tiempo*1000);   
                   }
