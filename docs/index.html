@@ -29,6 +29,22 @@
       <meta property="og:image" content="images/pic01.jpg">
       <!-- FIN CONFIGURACION METAS -->
       <link rel="stylesheet" href="assets/css/main.css" />
+
+
+      <link rel="manifest" href="meta_tags/iconos/manifest.json">
+      <link rel="stylesheet" type="text/css" href="meta_tags/add_to_homescreen/style/addtohomescreen.css">
+
+      <meta name="mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="#ef8376">
+      <meta name="apple-mobile-web-app-tittle" content="Free Random">
+
+      <meta name="theme-color" content="#ffffff">
+      <meta name="msapplication-TileColor" content="#000000">
+
+
       <style> 
          @font-face {
          font-family: titulo_principal;
@@ -251,6 +267,9 @@
       <script src="assets/js/breakpoints.min.js"></script>
       <script src="assets/js/util.js"></script>
       <script src="assets/js/main.js"></script>
+
+      <script type="text/javascript" src="/meta_tags/add_to_homescreen/src/addtohomescreen.js"></script>
+
       <!-- Email Form -->
       <script>
          $(document).ready(function() {
@@ -277,9 +296,19 @@
          
              updateEmailLink();
          
-         });
+         });        
          
-         
+      </script>
+
+      <script type="text/javascript">
+        
+        if (
+          (("standalone" in window.navigator) && !window.navigator.standalone) || 
+          ((!window.matchMedia('(display-mode:standalone)').matches )
+        )
+        ){
+          addToHomescreen();
+        }
       </script>
    </body>
 </html>
