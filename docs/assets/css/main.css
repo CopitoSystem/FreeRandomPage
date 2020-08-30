@@ -226,6 +226,11 @@ input, select, textarea {
 		font-size: 0.8em;
 	}
 
+	input[type="radio"] {
+  		margin-top: 4px !important;
+  		margin-left: 2px !important;
+	}
+
 /* Container */
 
 
@@ -990,7 +995,7 @@ input, select, textarea {
 		}
 
 		.footer_svg{
-			width: 45%;
+			width: 100%;
 		}
 
 		#footer .contact {
