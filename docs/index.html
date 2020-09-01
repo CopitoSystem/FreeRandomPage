@@ -85,9 +85,9 @@
 
         var myVar;
         var tiempo;
-        var tipo_letra=null;
-        var tipo_palabra=null;
-        var letra=null;
+        var tipo_letra = null;
+        var tipo_palabra = null;
+        var letra = null;
 
         userAction = async () => {  
           const response = await fetch('//copitoSystem.pythonanywhere.com/palabra', {
@@ -110,14 +110,28 @@
         function myStopFunction() { //para volver a cero el intervalo de tiempo
           clearInterval(myVar);
         }
+
+        function comenzarManual() {
+          if (document.getElementById("tl").checked){
+            tipo_letra = document.getElementById("tl").value;
+            letra = document.getElementById("l").value;
+          }
+
+          if (document.getElementById("tp").checked)
+            tipo_palabra = document.getElementById("tp").value;  
+
+          userAction();
+        }
          
-        function comenzar() {
+        function comenzar() { //automatico
          
           if (document.getElementById('comenzar_detener').value == "start"){
 
             document.getElementById('comenzar_detener').value = "detener";
             document.getElementById('comenzar_detener').innerHTML  = "Detener";
+
             var seconds_left = 4;
+
             var interval = setInterval(function() {
               document.getElementById('timer_div').innerHTML = --seconds_left;
 
@@ -134,9 +148,10 @@
 
                 if (document.getElementById("tp").checked)
                   tipo_palabra = document.getElementById("tp").value;
-                  userAction();
-                  myVar = setInterval(userAction, tiempo*1000);   
-                }
+
+                userAction();
+                myVar = setInterval(userAction, tiempo*1000);   
+              }
             }, 1000);
 
           }else{
@@ -173,7 +188,7 @@
                <br>
                <div class="grupo-botones">
                   <button class="boton-iniciar" id="comenzar_detener" type="submit" value="start" onclick="comenzar();">Comenzar</button>
-                  <button type="submit" class="boton-iniciar" onclick="userAction()">Manual</button>
+                  <button type="submit" class="boton-iniciar" onclick="comenzarManual()">Manual</button>
                </div>
                <br>
                <footer>
