@@ -112,50 +112,75 @@
         }
 
         function comenzarManual() {
+
           if (document.getElementById("tl").checked){
+            console.log('letra-manual');
             tipo_letra = document.getElementById("tl").value;
             letra = document.getElementById("l").value;
+            tipo_palabra = null;
           }
 
-          if (document.getElementById("tp").checked)
-            tipo_palabra = document.getElementById("tp").value;  
-
+          if (document.getElementById("tp").checked){
+            console.log('palabra-manual');
+            tipo_palabra = document.getElementById("tp").value; 
+            tipo_letra = null;
+            letra = null;
+            console.log('tipo palabra'+tipo_palabra);
+          }
+          console.log(letra);
+          console.log('caca1' +tipo_letra);
+          console.log('caca2' +tipo_palabra);
           userAction();
         }
          
         function comenzar() { //automatico
+          console.log(letra);
+          console.log(tipo_letra);
+          console.log(tipo_palabra);
          
           if (document.getElementById('comenzar_detener').value == "start"){
+            console.log('comenzar');
 
-            document.getElementById('comenzar_detener').value = "detener";
-            document.getElementById('comenzar_detener').innerHTML  = "Detener";
+            if ((document.getElementById("tl").checked) || (document.getElementById("tp").checked)){
 
-            var seconds_left = 4;
+              document.getElementById('comenzar_detener').value = "detener";
+              document.getElementById('comenzar_detener').innerHTML  = "Detener";
 
-            var interval = setInterval(function() {
-              document.getElementById('timer_div').innerHTML = --seconds_left;
+              var seconds_left = 4;
 
-              if (seconds_left <= 0){
+              var interval = setInterval(function() {
+                document.getElementById('timer_div').innerHTML = --seconds_left;
 
-                document.getElementById('timer_div').innerHTML = "";
-                clearInterval(interval);
-                tiempo = document.getElementById("tiempo").value;
+                if (seconds_left <= 0){
 
-                if (document.getElementById("tl").checked){
-                  tipo_letra = document.getElementById("tl").value;
-                  letra = document.getElementById("l").value;
+                  document.getElementById('timer_div').innerHTML = "";
+
+                  clearInterval(interval);
+
+                  tiempo = document.getElementById("tiempo").value;
+
+                  if (document.getElementById("tl").checked){
+                    tipo_letra = document.getElementById("tl").value;
+                    letra = document.getElementById("l").value;
+                    tipo_palabra = null;
+                    console.log('letra-auto');
+                  }
+
+                  if (document.getElementById("tp").checked){
+                    console.log('palabra-auto');
+                    tipo_palabra = document.getElementById("tp").value;
+                    tipo_letra = null;
+                    letra = null;
+                  }
+
+                  userAction();
+                  myVar = setInterval(userAction, tiempo*1000);   
                 }
-
-                if (document.getElementById("tp").checked)
-                  tipo_palabra = document.getElementById("tp").value;
-
-                userAction();
-                myVar = setInterval(userAction, tiempo*1000);   
-              }
-            }, 1000);
-
+              }, 1000);
+            }
           }else{
-            clearInterval(myVar);   
+            console.log('detener');
+            myStopFunction();   
             document.getElementById('comenzar_detener').value = "start";
             document.getElementById('comenzar_detener').innerHTML  = "Comenzar";
           }
@@ -176,10 +201,10 @@
                </header>
                <form>
                   <label style="font-family: texto_comun" for="tiempo">Tiempo [segundos]:
-                  <input type="number" id="tiempo" min="1" max="9999" value="5">
+                  <input type="number" id="tiempo" min="1" max="9999" value="10">
                   </label> 
                   <label style="font-family: texto_comun">
-                  <input id="tp" type="radio" name="modo" value="true" checked><span style="font-weight:500;">Palabras al Azar</span>
+                  <input id="tp" type="radio" name="modo" value="true"><span style="font-weight:500;">Palabras al Azar</span>
                   </label>
                   <label style="font-family: texto_comun">
                   <input id="tl" type="radio" name="modo" value="true" style="margin-top: -5px;">Una Letra<input type="text" id="l" maxlength="1" value="" style=" display: flex;width: 80px;">
