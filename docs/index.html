@@ -200,20 +200,20 @@
                   <p style="font-family: subtitulo">¡Empieza a generar palabras ya!</p>
                </header>
                <form>
-                  <label style="font-family: texto_comun" for="tiempo">Tiempo [segundos]:
+                  <label style="font-family: texto_comun" for="tiempo" title="Intervalo de tiempo entre palabras" >Tiempo [segundos]:
                   <input type="number" id="tiempo" min="1" max="9999" value="10">
                   </label> 
-                  <label style="font-family: texto_comun">
+                  <label style="font-family: texto_comun" title="Palabras random">
                   <input id="tp" type="radio" name="modo" value="true"><span style="font-weight:500;">Palabras al Azar</span>
                   </label>
-                  <label style="font-family: texto_comun">
-                  <input id="tl" type="radio" name="modo" value="true" style="margin-top: -5px;">Una Letra<input type="text" id="l" maxlength="1" value="" style=" display: flex;width: 80px;">
+                  <label style="font-family: texto_comun" title="Letra de comienzo de palabra">
+                  <input id="tl" type="radio" name="modo" value="true" style="margin-top: -5px;">Una Letra<input type="text" id="l" maxlength="1" value="" style=" display: flex;width: 80px;"  placeholder="Letra">
                   </label>
                </form>
                <br>
                <div class="grupo-botones">
-                  <button class="boton-iniciar" id="comenzar_detener" type="submit" value="start" onclick="comenzar();">Comenzar</button>
-                  <button type="submit" class="boton-iniciar" onclick="comenzarManual();">Manual</button>
+                  <button class="boton-iniciar" id="comenzar_detener" type="submit" value="start" onclick="comenzar();" title="Aparecerán palabras cada cierto tiempo">Comenzar</button>
+                  <button type="submit" class="boton-iniciar" title="Cada vez que presione aparecerá una nueva palabra" onclick="comenzarManual();">Manual</button>
                </div>
                <br>
                <footer>
