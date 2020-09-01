@@ -114,32 +114,32 @@
         function comenzarManual() {
 
           if (document.getElementById("tl").checked){
-            console.log('letra-manual');
+            //console.log('letra-manual');
             tipo_letra = document.getElementById("tl").value;
             letra = document.getElementById("l").value;
             tipo_palabra = null;
           }
 
           if (document.getElementById("tp").checked){
-            console.log('palabra-manual');
+            //console.log('palabra-manual');
             tipo_palabra = document.getElementById("tp").value; 
             tipo_letra = null;
             letra = null;
             console.log('tipo palabra'+tipo_palabra);
           }
-          console.log(letra);
-          console.log('caca1' +tipo_letra);
-          console.log('caca2' +tipo_palabra);
+          //console.log(letra);
+          //console.log('caca1' +tipo_letra);
+          //console.log('caca2' +tipo_palabra);
           userAction();
         }
          
         function comenzar() { //automatico
-          console.log(letra);
-          console.log(tipo_letra);
-          console.log(tipo_palabra);
+          //console.log(letra);
+          //console.log(tipo_letra);
+          //console.log(tipo_palabra);
          
           if (document.getElementById('comenzar_detener').value == "start"){
-            console.log('comenzar');
+            //console.log('comenzar');
 
             if ((document.getElementById("tl").checked) || (document.getElementById("tp").checked)){
 
@@ -163,11 +163,11 @@
                     tipo_letra = document.getElementById("tl").value;
                     letra = document.getElementById("l").value;
                     tipo_palabra = null;
-                    console.log('letra-auto');
+                    //console.log('letra-auto');
                   }
 
                   if (document.getElementById("tp").checked){
-                    console.log('palabra-auto');
+                    //console.log('palabra-auto');
                     tipo_palabra = document.getElementById("tp").value;
                     tipo_letra = null;
                     letra = null;
@@ -179,7 +179,7 @@
               }, 1000);
             }
           }else{
-            console.log('detener');
+            //console.log('detener');
             myStopFunction();   
             document.getElementById('comenzar_detener').value = "start";
             document.getElementById('comenzar_detener').innerHTML  = "Comenzar";
