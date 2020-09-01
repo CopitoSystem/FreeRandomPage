@@ -80,75 +80,73 @@
          border-radius: 100px/50px;
          }
       </style>
+
       <script type="text/javascript">
-         var myVar;
-            var tiempo;
-          var tipo_letra=null;
-          var tipo_palabra=null;
-          var letra=null;
-         userAction = async () => {
-            
-         
-         
-          
-            const response = await fetch('//copitoSystem.pythonanywhere.com/palabra', {
-              method: 'POST',
-              body: JSON.stringify({
-                tipo_letra: tipo_letra,
-                letra: letra,
-                tipo_palabra: tipo_palabra
-              }),
-              headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-              },
-            });
+
+        var myVar;
+        var tiempo;
+        var tipo_letra=null;
+        var tipo_palabra=null;
+        var letra=null;
+
+        userAction = async () => {  
+          const response = await fetch('//copitoSystem.pythonanywhere.com/palabra', {
+            method: 'POST',
+            body: JSON.stringify({
+              tipo_letra: tipo_letra,
+              letra: letra,
+              tipo_palabra: tipo_palabra
+            }),
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+          });
           const myJson = await response.json(); //extract JSON from the http response
           //console.log(myJson);
           document.getElementById('timer_div').innerHTML = myJson.data.palabra;
-         }
+        }
          
-         function myStopFunction() {
-         clearInterval(myVar);
-         }
+        function myStopFunction() { //para volver a cero el intervalo de tiempo
+          clearInterval(myVar);
+        }
          
-         function comenzar() {
+        function comenzar() {
          
-            if (document.getElementById('comenzar_detener').value == "start"){
-               document.getElementById('comenzar_detener').value = "detener";
-               document.getElementById('comenzar_detener').innerHTML  = "Detener";
-               var seconds_left = 4;
-               var interval = setInterval(function() {
-                  document.getElementById('timer_div').innerHTML = --seconds_left;
-         
-                  if (seconds_left <= 0){
-                     document.getElementById('timer_div').innerHTML = "";
-                     clearInterval(interval);
-                     tiempo = document.getElementById("tiempo").value;
-                     
-                      if (document.getElementById("tl").checked){
-         tipo_letra = document.getElementById("tl").value;
-         letra = document.getElementById("l").value;
-         }
-         
-         if (document.getElementById("tp").checked)
-         tipo_palabra = document.getElementById("tp").value;
-         
-                     userAction();
-                     myVar = setInterval(userAction, tiempo*1000);   
-                  }
-               }, 1000);   
-            }else{
-               clearInterval(myVar);   
-               document.getElementById('comenzar_detener').value = "start";
-               document.getElementById('comenzar_detener').innerHTML  = "Comenzar";
-            }
-         
-         
-            
-         }        
-         
+          if (document.getElementById('comenzar_detener').value == "start"){
+
+            document.getElementById('comenzar_detener').value = "detener";
+            document.getElementById('comenzar_detener').innerHTML  = "Detener";
+            var seconds_left = 4;
+            var interval = setInterval(function() {
+              document.getElementById('timer_div').innerHTML = --seconds_left;
+
+              if (seconds_left <= 0){
+
+                document.getElementById('timer_div').innerHTML = "";
+                clearInterval(interval);
+                tiempo = document.getElementById("tiempo").value;
+
+                if (document.getElementById("tl").checked){
+                  tipo_letra = document.getElementById("tl").value;
+                  letra = document.getElementById("l").value;
+                }
+
+                if (document.getElementById("tp").checked)
+                  tipo_palabra = document.getElementById("tp").value;
+                  userAction();
+                  myVar = setInterval(userAction, tiempo*1000);   
+                }
+            }, 1000);
+
+          }else{
+            clearInterval(myVar);   
+            document.getElementById('comenzar_detener').value = "start";
+            document.getElementById('comenzar_detener').innerHTML  = "Comenzar";
+          }
+        }        
       </script>
+
    </head>
    <body class="homepage is-preload">
       <div id="page-wrapper">
